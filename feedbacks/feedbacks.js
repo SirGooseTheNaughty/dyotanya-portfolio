@@ -1,16 +1,3 @@
-function getAudioLink(link) {
-    let playLink = 'https://docs.google.com/uc?export=download&id=';
-
-    try {
-        const audioId = link.split('d/')[1].split('/')[0];
-        playLink += audioId;
-        return playLink;
-    } catch(e) {
-        console.error('Не получилось выделить ссылку на файл');
-        return null;
-    }
-}
-
 class Feedback {
     constructor(id, link, subs, pinWidth = 3) {
         this.id = id;

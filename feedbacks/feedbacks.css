@@ -7,6 +7,10 @@
   --error: #DB261B;
 }
 
+.tn-atom__html {
+  height: 100%;
+}
+
 .audio {
   --current: var(--black);
   --icon: var(--black);
@@ -190,6 +194,7 @@
   position: fixed;
   top: 5vw;
   right: 5vw;
+  z-index: 999;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
