@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="instruments">
+            <div id="instrument-figma" class="instrument">
+                <div class="instrument__icon">
+                    <img src="https://static.tildacdn.com/tild3764-3835-4666-b461-313965663165/figma.svg" alt="figma">
+                </div>
+                <div class="instrument__description">
+                    Figma: графический редактор, где я создаю дизайн-макеты сайтов
+                </div>
+            </div>
+            
+            <div id="instrument-tilda" class="instrument">
+                <div class="instrument__icon">
+                    <img src="https://static.tildacdn.com/tild6366-6234-4239-a330-336434633266/tilda.svg" alt="tilda">
+                </div>
+                <div class="instrument__description">
+                    Тильда: платформа, на которой я претворяю дизайн в жизнь
+                </div>
+            </div>
+        </div>
+
+        <div class="instruments">
+            <div id="instrument-husband" class="instrument">
+                <div class="instrument__icon">
+                    <img src="https://static.tildacdn.com/tild6563-3262-4562-b030-313033616534/sirgoose.png" alt="husband-developer">
+                </div>
+                <div class="instrument__description">
+                    Муж-разработчик: помогает реализовывать интересные идеи с помощью кода
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            height: 90vh;
+            display: grid;
+            grid-template-rows: max-content max-content;
+            place-items: center;
+            gap: 60px;
+            padding-top: 200px;
+        }
+    </style>
+</body>
+</html>

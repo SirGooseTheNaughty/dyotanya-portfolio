@@ -1,0 +1,72 @@
+.instruments {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.instruments .instrument:not(:last-child) {
+  margin-right: 26px;
+}
+
+.instrument {
+  --gray: #333333;
+  position: relative;
+  height: 85px;
+  width: 85px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+  border-radius: 9999px;
+  border: 1px solid var(--gray);
+  -webkit-box-shadow: 6px -5px 0px 0px var(--gray);
+          box-shadow: 6px -5px 0px 0px var(--gray);
+  -webkit-transition: width .4s ease-in-out;
+  transition: width .4s ease-in-out;
+}
+
+.instrument:hover {
+  width: 315px;
+}
+
+.instrument__icon {
+  height: 100%;
+  aspect-ratio: 1/1;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.instrument__description {
+  min-width: 215px;
+  max-width: 215px;
+}
+
+.instrument#instrument-figma:hover {
+  width: 340px;
+}
+
+.instrument#instrument-figma .instrument__description {
+  min-width: 235px;
+  max-width: 235px;
+}
+
+.instrument#instrument-husband:hover {
+  width: 325px;
+}
+
+.instrument#instrument-husband .instrument__icon {
+  margin-right: 10px;
+}
+/*# sourceMappingURL=style.css.map */

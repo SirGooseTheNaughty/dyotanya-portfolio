@@ -1,0 +1,61 @@
+.instruments {
+    display: flex;
+    justify-content: flex-start;
+
+    .instrument:not(:last-child) {
+        margin-right: 26px;
+    }
+}
+
+.instrument {
+    --gray: #333333;
+    position: relative;
+    height: 85px;
+    width: 85px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 9999px;
+    border: 1px solid var(--gray);
+    box-shadow: 6px -5px 0px 0px var(--gray);
+    transition: width .4s ease-in-out;
+
+    &:hover {
+        width: 315px;
+    }
+
+    &__icon {
+        height: 100%;
+        aspect-ratio: 1/1;
+        display: grid;
+        place-items: center;
+    }
+
+    &__description {
+        min-width: 215px;
+        max-width: 215px;
+    }
+
+    &#instrument-figma {
+        &:hover {
+            width: 340px;
+        }
+
+        .instrument__description {
+            min-width: 235px;
+            max-width: 235px;
+        }
+    }
+
+    &#instrument-husband {
+        &:hover {
+            width: 325px;
+        }
+
+        .instrument__icon {
+            margin-right: 10px;
+        }
+    }
+}
