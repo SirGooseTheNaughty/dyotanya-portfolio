@@ -12,13 +12,13 @@
 
 .audio {
     --current: var(--black);
-    --icon: var(--black);
+    --icon: url('https://static.tildacdn.com/tild6237-3465-4336-b331-396438303564/arrow-black.svg');
     --iconBg: transparent;
 
     &.playing,
     &.paused {
         --current: var(--blue);
-        --icon: white;
+        --icon: url('https://static.tildacdn.com/tild3439-3832-4664-b138-343865343434/arrow-white.svg');
         --iconBg: var(--current);
     }
 
@@ -43,40 +43,24 @@
         place-items: center;
         cursor: pointer;
 
+        .icon-content {
+            width: 20px;
+            height: 20px;
+            left: 8%;
+            position: relative;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
         &.play {
             .icon-content {
-                width: 0;
-                height: 0;
-                position: relative;
-                left: 1px;
-                border-top: 10px solid transparent;
-                border-left: 16px solid var(--icon);
-                border-bottom: 10px solid transparent;
-                border-radius: 3px;
+                background-image: var(--icon);
             }
         }
 
         &.pause {
             .icon-content {
-                position: relative;
-                width: 16px;
-                height: 18px;
-
-                &::before,
-                &::after {
-                    content: '';
-                    display: block;
-                    position: absolute;
-                    width: 4px;
-                    height: 100%;
-                    background-color: var(--icon);
-                }
-                &::before {
-                    left: 1px;
-                }
-                &::after {
-                    right: 2px;
-                }
+                background-image: url('https://static.tildacdn.com/tild6637-3330-4331-b535-393532613737/pause.svg');
             }
         }
 
@@ -126,7 +110,7 @@
                 display: block;
                 height: 100%;
                 width: 3px;
-                margin-right: 3px;
+                margin-right: 1%;
                 background: var(--gray);
                 border-radius: 100px;
             }
@@ -141,36 +125,15 @@
     }
 
     &.small {
-        padding: 0 20px;
+        padding: 0 16px;
+        box-shadow: 4px -3px 0px 0px var(--current);
 
         .icon {
-            height: 30px;
+            height: 24px;
 
-            &.play {
-                .icon-content {
-                    border-top: 9px solid transparent;
-                    border-left: 14px solid var(--icon);
-                    border-bottom: 9px solid transparent;
-                    border-radius: 3px;
-                }
-            }
-    
-            &.pause {
-                .icon-content {
-                    width: 14px;
-                    height: 16px;
-    
-                    &::before,
-                    &::after {
-                        width: 3px;
-                    }
-                    &::before {
-                        left: 1px;
-                    }
-                    &::after {
-                        right: 2px;
-                    }
-                }
+            .icon-content {
+                width: 12px;
+                height: 12px;
             }
         }
     }

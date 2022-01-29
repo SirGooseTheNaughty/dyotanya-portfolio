@@ -44,7 +44,7 @@
             display: grid;
             grid-template-rows: max-content max-content;
             place-items: center;
-            gap: 20px;
+            gap: 60px;
             padding-top: 200px;
         }
         .audio {
@@ -55,14 +55,17 @@
             width: 237px;
             height: 52px;
         }
+        .audio {
+            transform: scale(1.51);
+        }
     </style>
 
     <script src="./subtitles.js"></script>
     <script src="./subtitler.js"></script>
     <script src="./feedbacks.js"></script>
     <script>
-        const feedback1 = new Feedback('feedback-1', 'https://drive.google.com/file/d/1nH0WZixLcmwXWo2mcubc6Ngh81TUDNkP/view?usp=sharing', rickAstley, 3);
-        const feedback2 = new Feedback('feedback-2', 'https://drive.google.com/file/d/1nH0WZixLcmwXWo2mcubc6Ngh81TUDNkP/view?usp=sharing', rickAstley, 2);
+        const feedback1 = new Feedback('feedback-1', 'https://drive.google.com/file/d/1nH0WZixLcmwXWo2mcubc6Ngh81TUDNkP/view?usp=sharing', subs.rickAstley, 3);
+        const feedback2 = new Feedback('feedback-2', 'https://drive.google.com/file/d/1nH0WZixLcmwXWo2mcubc6Ngh81TUDNkP/view?usp=sharing', subs.rickAstley, 2);
     </script>
 </body>
 </html>
