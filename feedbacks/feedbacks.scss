@@ -31,7 +31,7 @@
     align-items: center;
     padding: 0 24px;
     box-sizing: border-box;
-    box-shadow: 6px -5px 0px 0px var(--current);
+    box-shadow: 4px -4px 0px 0px var(--current);
 
     .icon {
         height: 32px;
@@ -129,7 +129,6 @@
 
     &.small {
         padding: 0 16px;
-        box-shadow: 4px -3px 0px 0px var(--current);
 
         .icon {
             height: 22px;

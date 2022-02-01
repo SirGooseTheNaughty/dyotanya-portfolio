@@ -32,8 +32,8 @@
   padding: 0 24px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  -webkit-box-shadow: 6px -5px 0px 0px var(--current);
-          box-shadow: 6px -5px 0px 0px var(--current);
+  -webkit-box-shadow: 4px -4px 0px 0px var(--current);
+          box-shadow: 4px -4px 0px 0px var(--current);
 }
 
 .audio.playing, .audio.paused {
@@ -146,8 +146,6 @@
 
 .audio.small {
   padding: 0 16px;
-  -webkit-box-shadow: 4px -3px 0px 0px var(--current);
-          box-shadow: 4px -3px 0px 0px var(--current);
 }
 
 .audio.small .icon {
