@@ -12,29 +12,29 @@
 
 .audio {
     --current: var(--black);
-    --icon: url('https://static.tildacdn.com/tild6237-3465-4336-b331-396438303564/arrow-black.svg');
-    --iconBg: transparent;
+    --currentBars: var(--black);
+    --icon: url('https://static.tildacdn.com/tild3439-3832-4664-b138-343865343434/arrow-white.svg');
+    --iconBg: var(--current);
 
     &.playing,
     &.paused {
         --current: var(--blue);
-        --icon: url('https://static.tildacdn.com/tild3439-3832-4664-b138-343865343434/arrow-white.svg');
-        --iconBg: var(--current);
+        --currentBars: var(--gray);
     }
 
     width: 100%;
     height: 100%;
-    border-radius: 9999px;
+    border-radius: 91px;
     border: 1px solid var(--current);
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 26px;
+    padding: 0 24px;
     box-sizing: border-box;
     box-shadow: 6px -5px 0px 0px var(--current);
 
     .icon {
-        height: 38px;
+        height: 32px;
         aspect-ratio: 1/1;
         background-color: var(--iconBg);
         border-radius: 50%;
@@ -44,9 +44,9 @@
         cursor: pointer;
 
         .icon-content {
-            width: 20px;
-            height: 20px;
-            left: 8%;
+            width: 15px;
+            height: 15px;
+            left: 2px;
             position: relative;
             background-size: contain;
             background-repeat: no-repeat;
@@ -61,6 +61,9 @@
         &.pause {
             .icon-content {
                 background-image: url('https://static.tildacdn.com/tild6637-3330-4331-b535-393532613737/pause.svg');
+                width: 8px;
+                height: 12px;
+                left: 0;
             }
         }
 
@@ -94,7 +97,7 @@
 
     .tracks {
         position: relative;
-        height: 40%;
+        height: 24px;
         width: 100%;
         cursor: pointer;
 
@@ -110,9 +113,9 @@
                 display: block;
                 height: 100%;
                 width: 3px;
-                margin-right: 1%;
-                background: var(--gray);
-                border-radius: 100px;
+                margin-right: 3px;
+                background: var(--currentBars);
+                border-radius: 1.5px;
             }
 
             &.colored {
@@ -129,12 +132,23 @@
         box-shadow: 4px -3px 0px 0px var(--current);
 
         .icon {
-            height: 24px;
+            height: 22px;
 
             .icon-content {
-                width: 12px;
-                height: 12px;
+                width: 8px;
+                height: 8px;
+                left: 1px;
             }
+
+            &.pause {
+                .icon-content {
+                    left: 1.5px;
+                }
+            }
+        }
+
+        .tracks {
+            height: 14px;
         }
     }
 }

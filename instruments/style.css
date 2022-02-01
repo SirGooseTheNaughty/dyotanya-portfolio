@@ -14,8 +14,8 @@
 .instrument {
   --gray: #333333;
   position: relative;
-  height: 85px;
-  width: 85px;
+  height: 74px;
+  width: 74px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   display: -webkit-box;
@@ -30,10 +30,17 @@
   overflow: hidden;
   border-radius: 9999px;
   border: 1px solid var(--gray);
-  -webkit-box-shadow: 6px -5px 0px 0px var(--gray);
-          box-shadow: 6px -5px 0px 0px var(--gray);
+  -webkit-box-shadow: 5px -5px 0px 0px var(--gray);
+          box-shadow: 5px -5px 0px 0px var(--gray);
   -webkit-transition: width .4s ease-in-out;
   transition: width .4s ease-in-out;
+}
+
+@media screen and (max-width: 1200px) {
+  .instrument {
+    height: 62px;
+    width: 62px;
+  }
 }
 
 .instrument:hover {
@@ -48,9 +55,18 @@
   place-items: center;
 }
 
+.instrument__icon img {
+  max-height: 100%;
+}
+
 .instrument__description {
   min-width: 215px;
   max-width: 215px;
+  font-family: 'Suisse Intl', sans-serif;
+  font-size: 14px;
+  font-weight: 450;
+  line-height: 120%;
+  color: var(--gray);
 }
 
 .instrument#instrument-figma:hover {
@@ -63,7 +79,7 @@
 }
 
 .instrument#instrument-husband:hover {
-  width: 325px;
+  width: 310px;
 }
 
 .instrument#instrument-husband .instrument__icon {

@@ -13,11 +13,12 @@
 
 .audio {
   --current: var(--black);
-  --icon: url('https://static.tildacdn.com/tild6237-3465-4336-b331-396438303564/arrow-black.svg');
-  --iconBg: transparent;
+  --currentBars: var(--black);
+  --icon: url('https://static.tildacdn.com/tild3439-3832-4664-b138-343865343434/arrow-white.svg');
+  --iconBg: var(--current);
   width: 100%;
   height: 100%;
-  border-radius: 9999px;
+  border-radius: 91px;
   border: 1px solid var(--current);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -28,7 +29,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 0 26px;
+  padding: 0 24px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   -webkit-box-shadow: 6px -5px 0px 0px var(--current);
@@ -37,12 +38,11 @@
 
 .audio.playing, .audio.paused {
   --current: var(--blue);
-  --icon: url('https://static.tildacdn.com/tild3439-3832-4664-b138-343865343434/arrow-white.svg');
-  --iconBg: var(--current);
+  --currentBars: var(--gray);
 }
 
 .audio .icon {
-  height: 38px;
+  height: 32px;
   aspect-ratio: 1/1;
   background-color: var(--iconBg);
   border-radius: 50%;
@@ -54,9 +54,9 @@
 }
 
 .audio .icon .icon-content {
-  width: 20px;
-  height: 20px;
-  left: 8%;
+  width: 15px;
+  height: 15px;
+  left: 2px;
   position: relative;
   background-size: contain;
   background-repeat: no-repeat;
@@ -68,6 +68,9 @@
 
 .audio .icon.pause .icon-content {
   background-image: url("https://static.tildacdn.com/tild6637-3330-4331-b535-393532613737/pause.svg");
+  width: 8px;
+  height: 12px;
+  left: 0;
 }
 
 .audio .icon.error {
@@ -103,7 +106,7 @@
 
 .audio .tracks {
   position: relative;
-  height: 40%;
+  height: 24px;
   width: 100%;
   cursor: pointer;
 }
@@ -127,9 +130,9 @@
   display: block;
   height: 100%;
   width: 3px;
-  margin-right: 1%;
-  background: var(--gray);
-  border-radius: 100px;
+  margin-right: 3px;
+  background: var(--currentBars);
+  border-radius: 1.5px;
 }
 
 .audio .tracks .track.colored {
@@ -148,12 +151,21 @@
 }
 
 .audio.small .icon {
-  height: 24px;
+  height: 22px;
 }
 
 .audio.small .icon .icon-content {
-  width: 12px;
-  height: 12px;
+  width: 8px;
+  height: 8px;
+  left: 1px;
+}
+
+.audio.small .icon.pause .icon-content {
+  left: 1.5px;
+}
+
+.audio.small .tracks {
+  height: 14px;
 }
 
 .subtitle {
