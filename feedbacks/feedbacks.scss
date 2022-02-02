@@ -125,6 +125,30 @@
                 }
             }
         }
+
+        @media screen and (max-width: 640px) {
+            padding: 0 16px;
+
+            .icon {
+                height: 22px;
+
+                .icon-content {
+                    width: 8px;
+                    height: 8px;
+                    left: 1px;
+                }
+
+                &.pause {
+                    .icon-content {
+                        left: 1.5px;
+                    }
+                }
+            }
+
+            .tracks {
+                height: 14px;
+            }
+        }
     }
 
     &.small {
