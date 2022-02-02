@@ -74,7 +74,7 @@
 }
 
 .audio .icon .icon-content {
-  width: 12px;
+  width: 11px;
   height: 12px;
   left: 2px;
   position: relative;
@@ -172,11 +172,8 @@
     height: 22px;
   }
   .audio .tracks .icon .icon-content {
-    width: 7px;
+    width: 6px;
     height: 7px;
-    left: 1px;
-  }
-  .audio .tracks .icon.pause .icon-content {
     left: 1px;
   }
   .audio .tracks .tracks {
@@ -193,12 +190,8 @@
 }
 
 .audio.small .icon .icon-content {
-  width: 7px;
+  width: 6px;
   height: 7px;
-  left: 0;
-}
-
-.audio.small .icon.pause .icon-content {
   left: 1px;
 }
 

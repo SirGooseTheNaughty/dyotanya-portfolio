@@ -56,7 +56,7 @@
         cursor: pointer;
 
         .icon-content {
-            width: 12px;
+            width: 11px;
             height: 12px;
             left: 2px;
             position: relative;
@@ -145,15 +145,9 @@
                 height: 22px;
 
                 .icon-content {
-                    width: 7px;
+                    width: 6px;
                     height: 7px;
                     left: 1px;
-                }
-
-                &.pause {
-                    .icon-content {
-                        left: 1px;
-                    }
                 }
             }
 
@@ -170,15 +164,9 @@
             height: 22px;
 
             .icon-content {
-                width: 7px;
+                width: 6px;
                 height: 7px;
-                left: 0;
-            }
-
-            &.pause {
-                .icon-content {
-                    left: 1px;
-                }
+                left: 1px;
             }
         }
 
