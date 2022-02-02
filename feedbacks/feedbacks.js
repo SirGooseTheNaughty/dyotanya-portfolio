@@ -37,6 +37,10 @@ class Feedback {
             this.track.removeEventListener('mousemove', this.changeTime);
         });
         window.addEventListener('playFeedback', this.stopByAnotherFeedback);
+        this.audio.onended = () => {
+            this.pause();
+            this.subtitler.close();
+        }
     }
 
     stopByAnotherFeedback(e) {
