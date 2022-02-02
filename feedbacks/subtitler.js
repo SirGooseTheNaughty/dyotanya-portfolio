@@ -1,8 +1,7 @@
 class Subtitler {
-    constructor(lines, feedback) {
+    constructor(lines, audio) {
         this.lines = lines;
-        this.feedback = feedback;
-        this.audio = feedback.audio;
+        this.audio = audio;
         this.cont = null;
         this.textCont = null;
         this.playPauseIcon = null;
@@ -27,8 +26,11 @@ class Subtitler {
         this.playPauseIcon = this.cont.querySelector('.subtitle__controls');
         this.closeIcon = this.cont.querySelector('.subtitle__close');
 
-        this.playPauseIcon.addEventListener('click', this.playPause);
-        this.closeIcon.addEventListener('click', this.close);
+        if (!listenersAdded) {
+            this.playPauseIcon.addEventListener('click', this.playPause);
+            this.closeIcon.addEventListener('click', this.close);
+            listenersAdded = true;
+        }
     }
 
     play() {
@@ -48,7 +50,7 @@ class Subtitler {
 
     close() {
         if (this.isPlaying) {
-            this.feedback.pause();
+            currentFeedback.pause();
             this.pause();
         }
         this.cont.classList.remove('shown');
@@ -56,10 +58,10 @@ class Subtitler {
 
     playPause() {
         if (this.isPlaying) {
-            this.feedback.pause();
+            currentFeedback.pause();
             this.pause();
         } else {
-            this.feedback.play();
+            currentFeedback.play();
             this.play();
         }
     }

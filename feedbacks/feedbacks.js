@@ -1,3 +1,6 @@
+let currentFeedback = null;
+let listenersAdded = false;
+
 class Feedback {
     constructor(id, link, subs, pinWidth = 3) {
         this.id = id;
@@ -16,7 +19,7 @@ class Feedback {
         this.embedAudio.apply(this);
         this.addPins.apply(this);
         if (subs) {
-            this.subtitler = new Subtitler(subs, this);
+            this.subtitler = new Subtitler(subs, this.audio);
         }
 
         this.play = this.play.bind(this);
@@ -88,6 +91,7 @@ class Feedback {
     }
 
     play() {
+        currentFeedback = this;
         window.dispatchEvent(this.event);
         this.audio.play();
         this.block.classList.remove('paused');
