@@ -5,6 +5,8 @@
   --gray: rgba(156, 156, 156, 0.47);
   --white: #F5F5F3;
   --error: #DB261B;
+  --playIcon: url('https://static.tildacdn.com/tild3439-3832-4664-b138-343865343434/arrow-white.svg');
+  --pauseIcon: url('https://static.tildacdn.com/tild6637-3330-4331-b535-393532613737/pause.svg');
 }
 
 .tn-atom__html {
@@ -14,7 +16,7 @@
 .audio {
   --current: var(--black);
   --currentBars: var(--black);
-  --icon: url('https://static.tildacdn.com/tild3439-3832-4664-b138-343865343434/arrow-white.svg');
+  --icon: var(--playIcon);
   --iconBg: var(--current);
   width: 100%;
   height: 100%;
@@ -29,7 +31,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 0 24px;
+  padding: 0 22px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   -webkit-box-shadow: 4px -4px 0px 0px var(--current);
@@ -54,8 +56,8 @@
 }
 
 .audio .icon .icon-content {
-  width: 15px;
-  height: 15px;
+  width: 12px;
+  height: 12px;
   left: 2px;
   position: relative;
   background-size: contain;
@@ -67,7 +69,7 @@
 }
 
 .audio .icon.pause .icon-content {
-  background-image: url("https://static.tildacdn.com/tild6637-3330-4331-b535-393532613737/pause.svg");
+  background-image: var(--pauseIcon);
   width: 8px;
   height: 12px;
   left: 0;
@@ -152,12 +154,12 @@
     height: 22px;
   }
   .audio .tracks .icon .icon-content {
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
     left: 1px;
   }
   .audio .tracks .icon.pause .icon-content {
-    left: 1.5px;
+    left: 1px;
   }
   .audio .tracks .tracks {
     height: 14px;
@@ -165,7 +167,7 @@
 }
 
 .audio.small {
-  padding: 0 16px;
+  padding: 0 12px;
 }
 
 .audio.small .icon {
@@ -173,13 +175,13 @@
 }
 
 .audio.small .icon .icon-content {
-  width: 8px;
-  height: 8px;
-  left: 1px;
+  width: 7px;
+  height: 7px;
+  left: 0;
 }
 
 .audio.small .icon.pause .icon-content {
-  left: 1.5px;
+  left: 1px;
 }
 
 .audio.small .tracks {
@@ -189,25 +191,16 @@
 .subtitle {
   position: fixed;
   top: 5vw;
-  right: 5vw;
+  right: 10vw;
   z-index: 999;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  min-width: 200px;
-  max-width: 30vw;
-  min-height: 50px;
-  padding: 20px;
-  display: -ms-grid;
-  display: grid;
-  place-items: center;
-  background-color: var(--blue);
-  color: var(--black);
-  border-radius: 10px;
-  white-space: pre-line;
-  font-family: 'Suisse Intl', sans-serif;
-  font-size: 18px;
-  color: var(--white);
+  width: 200px;
+  height: 84px;
+  padding: 21px 0 21px 24px;
+  background-color: var(--white);
+  border-radius: 20px;
+  border: 1px dashed var(--blue);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   opacity: 0;
   -webkit-transition: opacity .4s ease;
   transition: opacity .4s ease;
@@ -215,5 +208,68 @@
 
 .subtitle.shown {
   opacity: 1;
+}
+
+.subtitle__text {
+  color: var(--black);
+  white-space: pre-line;
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+}
+
+.subtitle__controls {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: var(--blue);
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.subtitle__controls .icon {
+  background-size: contain;
+  position: relative;
+}
+
+.subtitle__controls.play .icon {
+  width: 8px;
+  height: 9px;
+  left: 1px;
+  background-image: var(--playIcon);
+}
+
+.subtitle__controls.pause .icon {
+  width: 6px;
+  height: 10px;
+  background-image: var(--pauseIcon);
+}
+
+.subtitle__icon {
+  width: 9px;
+  height: 9px;
+}
+
+.subtitle__close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-transform: translate(0, -30%);
+          transform: translate(0, -30%);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid var(--blue);
+  background-color: var(--white);
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
 }
 /*# sourceMappingURL=feedbacks.css.map */

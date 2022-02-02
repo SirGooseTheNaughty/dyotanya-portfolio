@@ -16,7 +16,7 @@ class Feedback {
         this.embedAudio.apply(this);
         this.addPins.apply(this);
         if (subs) {
-            this.subtitler = new Subtitler(subs, this.audio);
+            this.subtitler = new Subtitler(subs, this);
         }
 
         this.play = this.play.bind(this);

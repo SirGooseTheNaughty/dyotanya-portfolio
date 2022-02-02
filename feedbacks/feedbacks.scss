@@ -4,6 +4,8 @@
     --gray: rgba(156, 156, 156, 0.47);
     --white: #F5F5F3;
     --error: #DB261B;
+    --playIcon: url('https://static.tildacdn.com/tild3439-3832-4664-b138-343865343434/arrow-white.svg');
+    --pauseIcon: url('https://static.tildacdn.com/tild6637-3330-4331-b535-393532613737/pause.svg');
 }
 
 .tn-atom__html {
@@ -13,7 +15,7 @@
 .audio {
     --current: var(--black);
     --currentBars: var(--black);
-    --icon: url('https://static.tildacdn.com/tild3439-3832-4664-b138-343865343434/arrow-white.svg');
+    --icon: var(--playIcon);
     --iconBg: var(--current);
 
     &.playing,
@@ -29,7 +31,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 24px;
+    padding: 0 22px;
     box-sizing: border-box;
     box-shadow: 4px -4px 0px 0px var(--current);
 
@@ -44,8 +46,8 @@
         cursor: pointer;
 
         .icon-content {
-            width: 15px;
-            height: 15px;
+            width: 12px;
+            height: 12px;
             left: 2px;
             position: relative;
             background-size: contain;
@@ -60,7 +62,7 @@
 
         &.pause {
             .icon-content {
-                background-image: url('https://static.tildacdn.com/tild6637-3330-4331-b535-393532613737/pause.svg');
+                background-image: var(--pauseIcon);
                 width: 8px;
                 height: 12px;
                 left: 0;
@@ -133,14 +135,14 @@
                 height: 22px;
 
                 .icon-content {
-                    width: 8px;
-                    height: 8px;
+                    width: 7px;
+                    height: 7px;
                     left: 1px;
                 }
 
                 &.pause {
                     .icon-content {
-                        left: 1.5px;
+                        left: 1px;
                     }
                 }
             }
@@ -152,20 +154,20 @@
     }
 
     &.small {
-        padding: 0 16px;
+        padding: 0 12px;
 
         .icon {
             height: 22px;
 
             .icon-content {
-                width: 8px;
-                height: 8px;
-                left: 1px;
+                width: 7px;
+                height: 7px;
+                left: 0;
             }
 
             &.pause {
                 .icon-content {
-                    left: 1.5px;
+                    left: 1px;
                 }
             }
         }
@@ -179,26 +181,82 @@
 .subtitle {
     position: fixed;
     top: 5vw;
-    right: 5vw;
+    right: 10vw;
     z-index: 999;
-    width: max-content;
-    min-width: 200px;
-    max-width: 30vw;
-    min-height: 50px;
-    padding: 20px;
-    display: grid;
-    place-items: center;
-    background-color: var(--blue);
-    color: var(--black);
-    border-radius: 10px;
-    white-space: pre-line;
-    font-family: 'Suisse Intl', sans-serif;
-    font-size: 18px;
-    color: var(--white);
+    width: 200px;
+    height: 84px;
+    padding: 21px 0 21px 24px;
+    background-color: var(--white);
+    border-radius: 20px;
+    border: 1px dashed var(--blue);
+    box-sizing: border-box;
     opacity: 0;
     transition: opacity .4s ease;
 
     &.shown {
         opacity: 1;
+    }
+
+    &__text {
+        color: var(--black);
+        white-space: pre-line;
+        font-family: 'Manrope', sans-serif;
+        font-size: 14px;
+    }
+
+    &__controls {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(-50%, -50%);
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background-color: var(--blue);
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+
+        .icon {
+            background-size: contain;
+            position: relative;
+        }
+
+        &.play {
+            .icon {
+                width: 8px;
+                height: 9px;
+                left: 1px;
+                background-image: var(--playIcon);
+            }
+        }
+            
+        &.pause {
+            .icon {
+                width: 6px;
+                height: 10px;
+                background-image: var(--pauseIcon);
+            }
+        }
+    }
+
+    &__icon {
+        width: 9px;
+        height: 9px;
+    }
+
+    &__close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(0, -30%);
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        border: 1px solid var(--blue);
+        background-color: var(--white);
+        display: grid;
+        place-items: center;
+        cursor: pointer;
     }
 }
