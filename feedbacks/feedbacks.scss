@@ -137,23 +137,23 @@
                 }
             }
         }
+    }
 
-        @media screen and (max-width: 640px) {
-            padding: 0 16px;
+    @media screen and (max-width: 640px) {
+        padding: 0 16px;
 
-            .icon {
-                height: 22px;
+        .icon {
+            height: 22px;
 
-                .icon-content {
-                    width: 6px;
-                    height: 7px;
-                    left: 1px;
-                }
+            .icon-content {
+                width: 6px;
+                height: 7px;
+                left: 1px;
             }
+        }
 
-            .tracks {
-                height: 14px;
-            }
+        .tracks {
+            height: 14px;
         }
     }
 

@@ -10,7 +10,7 @@ class Feedback {
         this.trackDefault = this.block.querySelector('.track.default');
         this.trackColor = this.block.querySelector('.track.colored');
         this.link = this.getAudioLink(link);
-        this.pinWidth = pinWidth;
+        this.pinWidth = document.documentElement.width > 640 ? pinWidth : 2;
         this.audio = null;
         this.subtitler = null;
 

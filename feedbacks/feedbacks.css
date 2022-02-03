@@ -165,18 +165,18 @@
 }
 
 @media screen and (max-width: 640px) {
-  .audio .tracks {
+  .audio {
     padding: 0 16px;
   }
-  .audio .tracks .icon {
+  .audio .icon {
     height: 22px;
   }
-  .audio .tracks .icon .icon-content {
+  .audio .icon .icon-content {
     width: 6px;
     height: 7px;
     left: 1px;
   }
-  .audio .tracks .tracks {
+  .audio .tracks {
     height: 14px;
   }
 }
