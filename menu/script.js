@@ -1,7 +1,9 @@
 const burger = document.querySelector('#rec407703783');
+const burgerLinks = burger.querySelectorAll('a');
 const trigger = document.querySelector('.burger-trigger');
 
 trigger.addEventListener('click', toggleBurger);
+burgerLinks.forEach(link => link.addEventListener('click', toggleBurger));
 burger.classList.add('burger');
 setTimeout(() => burger.classList.add('transition'));
 

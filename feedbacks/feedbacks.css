@@ -210,12 +210,14 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   opacity: 0;
+  pointer-events: none;
   -webkit-transition: opacity .4s ease;
   transition: opacity .4s ease;
 }
 
 .subtitle.shown {
   opacity: 1;
+  pointer-events: auto;
 }
 
 .subtitle__text {

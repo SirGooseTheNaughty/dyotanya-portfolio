@@ -186,10 +186,12 @@
     border: 1px dashed var(--blue);
     box-sizing: border-box;
     opacity: 0;
+    pointer-events: none;
     transition: opacity .4s ease;
 
     &.shown {
         opacity: 1;
+        pointer-events: auto;
     }
 
     &__text {
