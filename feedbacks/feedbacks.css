@@ -36,6 +36,7 @@
           box-sizing: border-box;
   -webkit-box-shadow: 4px -4px 0px 0px var(--current);
           box-shadow: 4px -4px 0px 0px var(--current);
+  background-color: var(--white);
   -webkit-transition: -webkit-transform .1s, -webkit-box-shadow .1s;
   transition: -webkit-transform .1s, -webkit-box-shadow .1s;
   transition: transform .1s, box-shadow .1s;

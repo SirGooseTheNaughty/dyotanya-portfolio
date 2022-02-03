@@ -1,0 +1,41 @@
+.burger {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99999;
+    opacity: 0;
+    pointer-events: none;
+}
+.burger.transition {
+    transition: opacity .4s ease;
+}
+.burger.shown {
+    opacity: 1;
+    pointer-events: auto;
+}
+.burger a {
+    letter-spacing: 0;
+    transition: letter-spacing .25s ease-in-out;
+}
+.burger a:hover {
+    letter-spacing: 2px;
+}
+.burger-trigger {
+    position: fixed;
+    border-radius: 26px;
+    box-shadow: 4px -5px 0px 0px #333333;
+    transition: .1s;
+    cursor: pointer;
+}
+.burger-trigger:hover {
+    box-shadow: 2px -3px 0px 0px #333333;
+    transform: translate(2px, -2px);
+}
+.burger-trigger:active {
+    box-shadow: 0px 0px 0px 0px #333333;
+    transform: translate(4px, -5px);
+}
+body.burger-opened {
+    overflow-y: hidden;
+}

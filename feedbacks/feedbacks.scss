@@ -34,6 +34,7 @@
     padding: 0 22px;
     box-sizing: border-box;
     box-shadow: 4px -4px 0px 0px var(--current);
+    background-color: var(--white);
     transition: transform .1s, box-shadow .1s;
 
     &:hover {
