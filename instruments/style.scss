@@ -3,7 +3,7 @@
     justify-content: flex-start;
 
     .instrument:not(:last-child) {
-        margin-right: 26px;
+        margin-right: -14px;
     }
 }
 
@@ -20,6 +20,7 @@
     border-radius: 9999px;
     border: 1px solid var(--gray);
     box-shadow: 5px -5px 0px 0px var(--gray);
+    background-color: #F5F5F3;
     transition: width .4s ease-in-out;
 
     @media screen and (max-width: 1200px) {
@@ -36,10 +37,17 @@
         aspect-ratio: 1/1;
         display: grid;
         place-items: center;
+        background-image: var(--url);
+        background-repeat: no-repeat;
+        background-position: center;
 
         img {
             max-height: 100%;
         }
+    }
+
+    &#instrument-husband .instrument__icon {
+        background-size: contain;
     }
 
     &__description {

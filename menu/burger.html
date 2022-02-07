@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <svg class="burger-trigger" width="56" height="57" viewBox="0 0 56 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="30" cy="26" r="26" fill="#333333"/>
+        <g class="closed">
+            <circle cx="26" cy="31" r="25.5" fill="#F6F6F4" stroke="#333333"/>
+            <path d="M18 26H39" stroke="#4F4F4F" stroke-width="2" stroke-linecap="round"/>
+            <path d="M13 31H29" stroke="#4F4F4F" stroke-width="2" stroke-linecap="round"/>
+            <path d="M20 36H34" stroke="#4F4F4F" stroke-width="2" stroke-linecap="round"/>
+        </g>
+        <g class="opened">
+            <path d="M19.6582 36.9995L32.0002 24.6575" stroke="#4F4F4F" stroke-width="2" stroke-linecap="round"/>
+            <path d="M31.9995 36.9995L19.6575 24.6575" stroke="#4F4F4F" stroke-width="2" stroke-linecap="round"/>
+        </g>
+    </svg>
+        
+
+    <style>
+        .steps-opened .burger-trigger {
+            display: none;
+        }
+        .burger-trigger {
+            transition: .1s;
+            cursor: pointer;
+            pointer-events: auto;
+        }
+        .burger-trigger g {
+            transition: transform .1s;
+        }
+        @media (hover: hover) {
+            .burger-trigger:hover g {
+                transform: translate(2px, -2px);
+            }
+        }
+        .burger-trigger:active g {
+            transform: translate(4px, -5px);
+        }
+        
+        .burger-trigger .opened {
+            opacity: 0;
+        }
+        .burger-trigger.opened .opened {
+            opacity: 1;
+        }
+        .burger-trigger.opened .closed {
+            opacity: 0;
+        }
+    </style>
+</body>
+</html>

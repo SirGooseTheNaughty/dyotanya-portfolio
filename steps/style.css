@@ -1,10 +1,34 @@
+body.steps-opened {
+    overflow-y: clip !important;
+}
+.steps-block {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll !important;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 9999;
+    background-size: 150%;
+    background-origin: center;
+}
+.steps-block.transition {
+    transition: opacity .25s ease;
+}
+.steps-block.shown {
+    opacity: 1;
+    pointer-events: auto;
+}
 .dragzone {
     position: relative;
     width: 100%;
     height: 100%;
+    transform-origin: top;
 }
 .step {
-    --stepColor: #55A1EA;
+    --stepColor: #333333;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -17,13 +41,15 @@
     background-color: #F5F5F3;
     z-index: 10;
     cursor: grab;
-    transition: box-shadow .1s, border-color .1s;
+    box-shadow: 5px -5px 0px 0px var(--stepColor);
+    transition: box-shadow .1s, border-color .1s, translate .1s;
 }
 .step.visited {
-    --stepColor: #333333;
+    --stepColor: var(--blue);
 }
 .step.current {
-    box-shadow: 4px -4px 0px 0px var(--stepColor);
+    transform: translate(4px, -4px);
+    box-shadow: 1px -1px 0px 0px var(--stepColor);
 }
 .step.topped {
     z-index: 50;
@@ -32,7 +58,8 @@
     cursor: grabbing;
 }
 .step__title { 
-    font-family: 'SimeizLight', serif;
+    font-family: 'Simeiz', serif;
+    font-weight: 300;
     font-size: 46px;
     margin-bottom: 10px;
 }
@@ -52,7 +79,7 @@
     display: grid;
     place-items: center;
     color: #F5F5F3;
-    font-family: 'SimeizLight', serif;
+    font-family: 'Simeiz', serif;
     font-size: 18px;
     font-style: italic;
     font-weight: 300;
@@ -60,6 +87,10 @@
     background-color: var(--stepColor);
     border-radius: 50%;
     transition: background-color .1s;
+}
+.step__index span {
+    position: relative;
+    left: -1px;
 }
 
 @media screen and (max-width: 1200px) {

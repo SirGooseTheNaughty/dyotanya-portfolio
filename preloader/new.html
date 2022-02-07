@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #81aed9;
+        }
+        .target {
+            position: absolute;
+            top: 10%;
+            left: 60%;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: black;
+        }
+        .target img {
+            width: 100%;
+            height: 100%;
+        }
+        .main-bg {
+            position: absolute;
+            width: 90%;
+            top: 5%;
+        }
+        .main-bg .tn-atom {
+            width: 100%;
+            height: 100%;
+            background-color: black;
+        }
+    </style>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="target main-gif"><img src="" alt=""></div>
+    <div class="main-bg"><div class="tn-atom"></div></div>
+    <div class="preloader">
+        <div class="images">
+            <img src="https://static.tildacdn.com/tild3135-3231-4263-b530-316331333730/Rectangle_81.png" alt="">
+            <img src="https://static.tildacdn.com/tild6466-6436-4765-a162-623337396130/Rectangle_79.png" alt="">
+            <img src="https://static.tildacdn.com/tild3037-3630-4930-b866-363234653565/Rectangle_76.png" alt="">
+            <img src="https://static.tildacdn.com/tild6632-6137-4161-b963-313266363039/Rectangle_78.png" alt="">
+            <img src="https://static.tildacdn.com/tild3734-6665-4262-b139-356531666335/Rectangle_77.png" alt="">
+            <img src="https://static.tildacdn.com/tild6334-3865-4934-a164-303735306162/photo.png" alt="">
+        </div>
+        <div class="progress"><div class="filler"></div></div>
+    </div>
+
+    <script src='./script.js'></script>
+
+    <script>
+        setTimeout(() => document.querySelector('.main-gif').style.zoom = '1.1', 1000);
+    </script>
+</body>
+</html>

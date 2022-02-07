@@ -1,36 +1,112 @@
 .step-1 {
-    top: 20vh;
-    left: 20vw;
+    top: 20%;
+    left: 20%;
 }
 .step-2 {
-    top: 30vh;
-    left: 60vw;
+    top: 30%;
+    left: 60%;
 }
 .step-3 {
-    top: 42vh;
-    left: 40vw;
+    top: 42%;
+    left: 40%;
 }
 .step-4 {
-    top: 12vh;
-    left: 46vw;
+    top: 12%;
+    left: 46%;
 }
 .step-5 {
-    top: 63vh;
-    left: 56vw;
+    top: 63%;
+    left: 56%;
 }
 .step-6 {
-    top: 55vh;
-    left: 10vw;
+    top: 55%;
+    left: 10%;
 }
 .step-7 {
-    top: 36vh;
-    left: 25vw;
+    top: 36%;
+    left: 25%;
 }
 .step-8 {
-    top: 68vh;
-    left: 18vw;
+    top: 68%;
+    left: 18%;
 }
 .step-9 {
-    top: 70vh;
-    left: 35vw;
+    top: 70%;
+    left: 35%;
+}
+@media screen and (max-width: 960px) {
+    .step-1 {
+        top: 0;
+        left: 0;
+    }
+    .step-2 {
+        top: 5%;
+        left: 5%;
+    }
+    .step-3 {
+        top: 10%;
+        left: 10%;
+    }
+    .step-4 {
+        top: 15%;
+        left: 15%;
+    }
+    .step-5 {
+        top: 20%;
+        left: 20%;
+    }
+    .step-6 {
+        top: 25%;
+        left: 25%;
+    }
+    .step-7 {
+        top: 30%;
+        left: 30%;
+    }
+    .step-8 {
+        top: 35%;
+        left: 35%;
+    }
+    .step-9 {
+        top: 40%;
+        left: 40%;
+    }
+}
+@media screen and (max-width: 960px) {
+    .step-1 {
+        top: 5%;
+        left: 5%;
+    }
+    .step-2 {
+        top: 15%;
+        left: 45%;
+    }
+    .step-3 {
+        top: 27%;
+        left: 25%;
+    }
+    .step-4 {
+        top: 0;
+        left: 31%;
+    }
+    .step-5 {
+        top: 48%;
+        left: 41%;
+    }
+    .step-6 {
+        top: 40%;
+        left: 0;
+    }
+    .step-7 {
+        top: 21%;
+        left: 10%;
+    }
+    .step-8 {
+        top: 53%;
+        left: 3%;
+    }
+    .step-9 {
+        top: 55%;
+        left: 20%;
+    }
 }

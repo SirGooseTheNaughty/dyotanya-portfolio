@@ -8,7 +8,7 @@
 }
 
 .instruments .instrument:not(:last-child) {
-  margin-right: 26px;
+  margin-right: -14px;
 }
 
 .instrument {
@@ -32,6 +32,7 @@
   border: 1px solid var(--gray);
   -webkit-box-shadow: 5px -5px 0px 0px var(--gray);
           box-shadow: 5px -5px 0px 0px var(--gray);
+  background-color: #F5F5F3;
   -webkit-transition: width .4s ease-in-out;
   transition: width .4s ease-in-out;
 }
@@ -53,10 +54,17 @@
   display: -ms-grid;
   display: grid;
   place-items: center;
+  background-image: var(--url);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .instrument__icon img {
   max-height: 100%;
+}
+
+.instrument#instrument-husband .instrument__icon {
+  background-size: contain;
 }
 
 .instrument__description {

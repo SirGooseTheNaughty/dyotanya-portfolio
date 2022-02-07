@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <video autoplay loop>
+        <source src="https://drive.google.com/uc?export=preview&id=1cAS2IA2vqIjdBKXf__s1WHOcFTF6u8pY" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <style>
+        .video-elem,
+        .video-elem .tn-atom__scale-wrapper {
+            border-radius: 30px;
+            overflow: hidden;
+        }
+        @media screen and (max-width: 480px) {
+            .video-elem,
+            .video-elem .tn-atom__scale-wrapper {
+                border-radius: 20px;
+            }
+        }
+        .unclip {
+            border-radius: 0;
+            overflow: visible;
+        }
+        video {
+            width: 100%;
+            position: absolute;
+        }
+    </style>
+
+    <script>
+        const elem = document.querySelector('.video-elem');
+        const video = elem.querySelector('video');
+        setTimeout(() => {
+            const wrapper = elem.querySelector('.tn-atom__scale-wrapper');
+            if (wrapper) {
+                elem.classList.add('unclip');
+            }
+            autoplay();
+        });
+        function autoplay() {
+            if (video.paused) {
+                video.play().catch(console.warn);
+            }
+            setTimeout(autoplay, 500);
+        }
+    </script>
+</body>
+</html>

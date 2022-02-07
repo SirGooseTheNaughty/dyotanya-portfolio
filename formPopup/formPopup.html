@@ -1,0 +1,52 @@
+<style>
+    .form-popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        overflow-y: scroll !important;
+        z-index: 99999;
+        opacity: 0;
+        pointer-events: none;
+    }
+    .form-popup.transition {
+        transition: opacity .4s ease;
+    }
+    .form-popup.shown {
+        opacity: 1;
+        pointer-events: auto;
+    }
+</style>
+
+<script>
+    (function useFormPopup(blockId) {
+        const block = document.querySelector(blockId);
+        const triggers = document.querySelectorAll('.form-popup-trigger, .form-popup-closer');
+        const closer = block.querySelector('.t396__filter');
+
+        block.classList.add('form-popup');
+        setTimeout(() => block.classList.add('transition'));
+        closer.style.cursor = 'pointer';
+        closer.addEventListener('click', toggleBlock);
+        triggers.forEach(trigger => {
+            trigger.style.cursor = 'pointer';
+            trigger.addEventListener('click', toggleBlock);
+        });
+        block.addEventListener('click', (e) => {
+            if (e.target.classList.contains('t-submit')) {
+                toggleBlock();
+            }
+        });
+
+        function toggleBlock() {
+            if (block.classList.contains('shown')) {
+                block.classList.remove('shown');
+                document.body.classList.remove('steps-opened');
+            } else {
+                block.classList.add('shown');
+                document.body.classList.add('steps-opened');
+            }
+        }
+    })('#rec409751170');
+</script>
