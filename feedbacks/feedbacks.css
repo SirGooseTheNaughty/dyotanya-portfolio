@@ -213,6 +213,7 @@
   pointer-events: none;
   -webkit-transition: opacity .4s ease;
   transition: opacity .4s ease;
+  min-height: 85px;
 }
 
 .subtitle.shown {

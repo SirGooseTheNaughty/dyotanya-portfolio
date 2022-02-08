@@ -188,6 +188,7 @@
     opacity: 0;
     pointer-events: none;
     transition: opacity .4s ease;
+    min-height: 85px;
 
     &.shown {
         opacity: 1;

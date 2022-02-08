@@ -1,9 +1,8 @@
-let currentFeedback = null;
-let listenersAdded = false;
 
 class Feedback {
     constructor(id, link, subs, pinWidth = 3) {
         this.id = id;
+        this.subs = subs;
         this.block = document.querySelector('#' + id);
         this.icon = this.block.querySelector('.icon');
         this.track = this.block.querySelector('.tracks');
@@ -12,21 +11,16 @@ class Feedback {
         this.link = this.getAudioLink(link);
         this.pinWidth = document.documentElement.width > 640 ? pinWidth : 2;
         this.audio = null;
-        this.subtitler = null;
-
-        this.event = new CustomEvent('playFeedback', { which: this.id });
 
         this.embedAudio.apply(this);
         this.addPins.apply(this);
-        if (subs) {
-            this.subtitler = new Subtitler(subs, this.audio);
-        }
 
         this.play = this.play.bind(this);
         this.pause = this.pause.bind(this);
         this.showProgress = this.showProgress.bind(this);
         this.changeTime = this.changeTime.bind(this);
-        this.stopByAnotherFeedback = this.stopByAnotherFeedback.bind(this);
+        this.catchPlayEvent = this.catchPlayEvent.bind(this);
+        this.catchPauseEvent = this.catchPauseEvent.bind(this);
         this.icon.addEventListener('click', this.togglePlay.bind(this));
         this.track.addEventListener('click', this.changeTime);
         this.track.addEventListener('mousedown', (e) => {
@@ -36,16 +30,35 @@ class Feedback {
         this.track.addEventListener('mouseup', () => {
             this.track.removeEventListener('mousemove', this.changeTime);
         });
-        window.addEventListener('playFeedback', this.stopByAnotherFeedback);
+        window.addEventListener('playFeedback', this.catchPlayEvent);
+        window.addEventListener('pauseFeedback', this.catchPauseEvent);
         this.audio.onended = () => {
             this.pause();
-            this.subtitler.close();
         }
     }
 
-    stopByAnotherFeedback(e) {
-        if (!this.audio.paused && e.which !== this.id) {
+    get pauseEvent() {
+        return new CustomEvent('pauseFeedback');
+    }
+
+    get playEvent() {
+        return new CustomEvent('playFeedback', { detail: { play: true, id: this.id, subs: this.subs, audio: this.audio } });
+    }
+
+    catchPauseEvent() {
+        if (this.audio && !this.audio.paused) {
             this.pause();
+        }
+    }
+
+    catchPlayEvent(e) {
+        if (this.audio) {
+            if (e.detail.id === this.id && this.audio.paused) {
+                return this.play();
+            }
+            if (e.detail.id !== this.id && !this.audio.paused) {
+                return this.pause();
+            }
         }
     }
 
@@ -95,20 +108,16 @@ class Feedback {
     }
 
     play() {
-        currentFeedback = this;
-        window.dispatchEvent(this.event);
         this.audio.play();
         this.block.classList.remove('paused');
         this.block.classList.add('playing');
         this.icon.classList.remove('play');
         this.icon.classList.add('pause');
         this.showProgress();
-        this.subtitler.play();
     }
 
     pause() {
         this.audio.pause();
-        this.subtitler.pause();
         this.block.classList.remove('playing');
         this.block.classList.add('paused');
         this.icon.classList.remove('pause');
@@ -117,9 +126,10 @@ class Feedback {
 
     togglePlay() {
         if (this.audio.paused) {
-            this.play()
+            window.dispatchEvent(this.playEvent);
+            console.log('dispatched play');
         } else {
-            this.pause();
+            window.dispatchEvent(this.pauseEvent);
         }
     }
 

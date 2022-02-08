@@ -1,7 +1,8 @@
 class Subtitler {
-    constructor(lines, audio) {
-        this.lines = lines;
-        this.audio = audio;
+    constructor() {
+        this.lines;
+        this.audio;
+        this.id;
         this.cont = null;
         this.textCont = null;
         this.playPauseIcon = null;
@@ -16,8 +17,38 @@ class Subtitler {
         this.play = this.play.bind(this);
         this.close = this.close.bind(this);
         this.playPause = this.playPause.bind(this);
+        this.catchPlayEvent = this.catchPlayEvent.bind(this);
+        this.catchPauseEvent = this.catchPauseEvent.bind(this);
 
         this.findContainer.apply(this);
+
+        window.addEventListener('playFeedback', this.catchPlayEvent);
+        window.addEventListener('pauseFeedback', this.catchPauseEvent);
+    }
+
+    get pauseEvent() {
+        return new CustomEvent('pauseFeedback');
+    }
+
+    get playEvent() {
+        return new CustomEvent('playFeedback', { detail: { id: this.id } });
+    }
+
+    catchPlayEvent(event) {
+        if (event.detail.audio) {
+            this.audio = event.detail.audio;
+        }
+        if (event.detail.subs) {
+            this.lines = event.detail.subs;
+        }
+        if (event.detail.id) {
+            this.id = event.detail.id;
+        }
+        this.play();
+    }
+
+    catchPauseEvent() {
+        this.pause();
     }
 
     findContainer() {
@@ -26,11 +57,8 @@ class Subtitler {
         this.playPauseIcon = this.cont.querySelector('.subtitle__controls');
         this.closeIcon = this.cont.querySelector('.subtitle__close');
 
-        if (!listenersAdded) {
-            this.playPauseIcon.addEventListener('click', this.playPause);
-            this.closeIcon.addEventListener('click', this.close);
-            listenersAdded = true;
-        }
+        this.playPauseIcon.addEventListener('click', this.playPause);
+        this.closeIcon.addEventListener('click', this.close);
     }
 
     play() {
@@ -50,19 +78,17 @@ class Subtitler {
 
     close() {
         if (this.isPlaying) {
-            currentFeedback.pause();
             this.pause();
+            window.dispatchEvent(this.pauseEvent);
         }
         this.cont.classList.remove('shown');
     }
 
     playPause() {
         if (this.isPlaying) {
-            currentFeedback.pause();
-            this.pause();
+            window.dispatchEvent(this.pauseEvent);
         } else {
-            currentFeedback.play();
-            this.play();
+            window.dispatchEvent(this.playEvent);
         }
     }
 
@@ -100,3 +126,5 @@ class Subtitler {
         return appropriateElements;
     }
 }
+
+const subtitler = new Subtitler();
