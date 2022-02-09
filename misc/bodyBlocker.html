@@ -1,0 +1,31 @@
+<style>
+    body.form-popup-opened,
+    body.burger-opened,
+    body.steps-opened {
+        overflow-y: hidden;
+    }
+</style>
+
+<script>
+    document.body.addEventListener('touchmove', (e) => {
+        if (
+            document.body.classList.contains('burger-opened')
+            || document.body.classList.contains('steps-opened')
+            || document.body.classList.contains('form-popup-opened')
+        ) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    });
+    document.querySelectorAll('.burger, .steps-block').forEach(block => {
+        block.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+        });
+    });
+    document.querySelectorAll('.form-popup').forEach(block => {
+        block.addEventListener('touchmove', (e) => {
+            e.stopPropagation();
+        });
+    });
+</script>

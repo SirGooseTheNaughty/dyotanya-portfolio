@@ -17,6 +17,9 @@
         opacity: 1;
         pointer-events: auto;
     }
+    .form-popup.shown .form-popup-closer {
+        pointer-events: auto;
+    }
 </style>
 
 <script>
@@ -42,10 +45,10 @@
         function toggleBlock() {
             if (block.classList.contains('shown')) {
                 block.classList.remove('shown');
-                document.body.classList.remove('steps-opened');
+                document.body.classList.remove('form-popup-opened');
             } else {
                 block.classList.add('shown');
-                document.body.classList.add('steps-opened');
+                document.body.classList.add('form-popup-opened');
             }
         }
     })('#rec409751170');

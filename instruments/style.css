@@ -63,7 +63,8 @@
   max-height: 100%;
 }
 
-.instrument#instrument-husband .instrument__icon {
+.instrument#instrument-husband .instrument__icon,
+.instrument#instrument-tilda .instrument__icon {
   background-size: contain;
 }
 

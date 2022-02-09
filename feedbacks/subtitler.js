@@ -24,10 +24,11 @@ class Subtitler {
 
         window.addEventListener('playFeedback', this.catchPlayEvent);
         window.addEventListener('pauseFeedback', this.catchPauseEvent);
+        window.addEventListener('closeFeedback', this.close);
     }
 
     get pauseEvent() {
-        return new CustomEvent('pauseFeedback');
+        return new CustomEvent('pauseFeedback', { detail: { id: this.id } });
     }
 
     get playEvent() {
@@ -47,8 +48,10 @@ class Subtitler {
         this.play();
     }
 
-    catchPauseEvent() {
-        this.pause();
+    catchPauseEvent(event) {
+        if (event.detail.id === this.id) {
+            this.pause();
+        }
     }
 
     findContainer() {
@@ -126,5 +129,3 @@ class Subtitler {
         return appropriateElements;
     }
 }
-
-const subtitler = new Subtitler();

@@ -1,6 +1,3 @@
-body.steps-opened {
-    overflow-y: clip !important;
-}
 .steps-block {
     position: fixed;
     top: 0;
@@ -19,6 +16,9 @@ body.steps-opened {
 }
 .steps-block.shown {
     opacity: 1;
+    pointer-events: auto;
+}
+.steps-block.shown .steps-closer {
     pointer-events: auto;
 }
 .dragzone {
@@ -43,6 +43,19 @@ body.steps-opened {
     cursor: grab;
     box-shadow: 5px -5px 0px 0px var(--stepColor);
     transition: box-shadow .1s, border-color .1s, translate .1s;
+}
+.step.jumping {
+    transition: none;
+    animation-name: jumps;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+@keyframes jumps {
+    0% { transform: translate(0, 0); }
+    10% { transform: translate(-15px, -25px); }
+    20% { transform: translate(0, 0); }
+    30% { transform: translate(-15px, -25px); }
+    40% { transform: translate(0, 0); }
 }
 .step.visited {
     --stepColor: var(--blue);

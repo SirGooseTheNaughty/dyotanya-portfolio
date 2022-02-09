@@ -10,10 +10,12 @@ class Steps {
         this.dragEnd = this.dragEnd.bind(this);
         this.toggleBlock = this.toggleBlock.bind(this);
         this.checkScaleAndRescale = this.checkScaleAndRescale.bind(this);
+        this.removeJumper = this.removeJumper.bind(this);
         this.reverseScale = 1;
         this.current = null;
         this.layerX = null;
         this.layerY = null;
+        this.dragged = false;
 
         this.block.classList.add('steps-block');
         this.block.querySelector('div').style.height = '100% !important';
@@ -38,7 +40,18 @@ class Steps {
         setTimeout(this.checkScaleAndRescale, 2000);
     }
 
+    removeJumper() {
+        if (!this.dragged) {
+            const jumper = this.block.querySelector('.jumping');
+            if (jumper) {
+                jumper.classList.remove('jumping');
+            }
+            this.dragged = true;
+        }
+    }
+
     dragStart(e) {
+        this.removeJumper();
         if (this.current) {
             this.current.classList.remove('current');
             this.current.classList.remove('topped');

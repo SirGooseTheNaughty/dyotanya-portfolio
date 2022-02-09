@@ -30,9 +30,6 @@
     box-shadow: 0px 0px 0px 0px #333333;
     transform: translate(4px, -5px);
 }
-body.burger-opened {
-    overflow-y: hidden;
-}
 @media (hover: hover) {
     .burger a:hover {
         letter-spacing: 2px;

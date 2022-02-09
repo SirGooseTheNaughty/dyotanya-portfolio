@@ -33,20 +33,25 @@ class Feedback {
         window.addEventListener('playFeedback', this.catchPlayEvent);
         window.addEventListener('pauseFeedback', this.catchPauseEvent);
         this.audio.onended = () => {
+            window.dispatchEvent(this.closeEvent);
             this.pause();
         }
     }
 
     get pauseEvent() {
-        return new CustomEvent('pauseFeedback');
+        return new CustomEvent('pauseFeedback', { detail: { id: this.id } });
     }
 
     get playEvent() {
         return new CustomEvent('playFeedback', { detail: { play: true, id: this.id, subs: this.subs, audio: this.audio } });
     }
 
-    catchPauseEvent() {
-        if (this.audio && !this.audio.paused) {
+    get closeEvent() {
+        return new CustomEvent('closeFeedback', { detail: { id: this.id } });
+    }
+
+    catchPauseEvent(e) {
+        if (this.audio && e.detail.id === this.id && !this.audio.paused) {
             this.pause();
         }
     }
@@ -108,12 +113,15 @@ class Feedback {
     }
 
     play() {
-        this.audio.play();
-        this.block.classList.remove('paused');
-        this.block.classList.add('playing');
-        this.icon.classList.remove('play');
-        this.icon.classList.add('pause');
-        this.showProgress();
+        this.audio.play()
+            .then(() => {
+                this.block.classList.remove('paused');
+                this.block.classList.add('playing');
+                this.icon.classList.remove('play');
+                this.icon.classList.add('pause');
+                this.showProgress();
+            })
+            .catch(console.error);
     }
 
     pause() {
@@ -127,7 +135,6 @@ class Feedback {
     togglePlay() {
         if (this.audio.paused) {
             window.dispatchEvent(this.playEvent);
-            console.log('dispatched play');
         } else {
             window.dispatchEvent(this.pauseEvent);
         }
