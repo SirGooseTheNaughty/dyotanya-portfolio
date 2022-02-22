@@ -37,38 +37,38 @@
 @media screen and (max-width: 960px) {
     .step-1 {
         top: 0;
-        left: 10%;
+        left: 3%;
     }
     .step-2 {
         top: 7%;
-        left: 16%;
+        left: 8%;
     }
     .step-3 {
         top: 14%;
-        left: 20%;
+        left: 12%;
     }
     .step-4 {
         top: 21%;
-        left: 24%;
+        left: 16%;
     }
     .step-5 {
         top: 28%;
-        left: 27%;
+        left: 19%;
     }
     .step-6 {
         top: 35%;
-        left: 24%;
+        left: 16%;
     }
     .step-7 {
         top: 42%;
-        left: 20%;
+        left: 12%;
     }
     .step-8 {
         top: 62%;
-        left: 15%;
+        left: 7%;
     }
     .step-9 {
         top: 56%;
-        left: 10%;
+        left: 3%;
     }
 }

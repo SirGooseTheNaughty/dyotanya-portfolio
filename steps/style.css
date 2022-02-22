@@ -128,7 +128,7 @@
 }
 @media screen and (max-width: 480px) {
     .step {
-        width: 231px;
+        width: 290px;
         padding: 28px;
     }
     .step__title {

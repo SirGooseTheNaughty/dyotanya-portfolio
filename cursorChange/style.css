@@ -1,0 +1,22 @@
+.cursor-changed {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: -100px;
+    overflow: visible;
+    z-index: 10000000000;
+    pointer-events: none;
+}
+.cursor-active,
+.cursor-disactive {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease;
+}
+@media (hover: hover) {
+    .cursor-changed {
+        display: block;
+    }
+}

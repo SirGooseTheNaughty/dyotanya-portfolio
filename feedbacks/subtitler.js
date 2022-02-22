@@ -56,6 +56,7 @@ class Subtitler {
 
     findContainer() {
         this.cont = document.querySelector('.subtitle');
+        this.cont.classList.add('transition');
         this.textCont = this.cont.querySelector('.subtitle__text');
         this.playPauseIcon = this.cont.querySelector('.subtitle__controls');
         this.closeIcon = this.cont.querySelector('.subtitle__close');

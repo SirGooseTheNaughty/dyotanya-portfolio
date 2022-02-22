@@ -1,23 +1,12 @@
+let setProgress = () => {};
 function usePreloader() {
-    document.body.classList.add('burger-opened');
+    document.body.style.overflow = 'hidden';
     const preloader = document.querySelector('.preloader');
-    const images = preloader.querySelector('.images');
-    const imageParams = {
-        left: null,
-        top: null,
-        width: null,
-    };
-    const bgParams = {
-        left: 20,
-        top: 20,
-    };
+    const bgParams = { shrink: false, left: 20, top: 20, };
     const progress = preloader.querySelector('.filler');
-    setTimeout(() => preloader.classList.add('transition'));
-    let targetImage;
     let targetBg;
 
     document.addEventListener('DOMContentLoaded', () => {
-        targetImage = document.querySelector('.main-gif');
         targetBg = document.querySelector('.main-bg');
         waitForAutoscale();
     });
@@ -27,29 +16,22 @@ function usePreloader() {
     });
 
     function shrinkPreloader() {
+        preloader.style = `--left: ${bgParams.left}px; --top: ${bgParams.top}px;`
         preloader.classList.add('shrinking');
-    }
-    function moveImages() {
-        images.style.top = `${imageParams.top}px`;
-        images.style.left = `${imageParams.left}px`;
-        images.style.width = `${imageParams.width}px`;
-        images.style.height = `${imageParams.width}px`;
-        images.classList.add('unshifted');
-        preloader.style = `--top: ${bgParams.top}px; --left: ${bgParams.left}px;`
     }
     function fadePreloader() {
         preloader.classList.add('fading');
     }
     function removePreloader() {
         preloader.remove();
-        document.body.classList.remove('burger-opened');
+        document.body.style.overflow = 'auto';
     }
     function chainAnimations() {
         let shrinkTime = 0;
         setProgress(100);
-        if (imageParams.top) {
+        preloader.classList.add('transition');
+        if (bgParams.shrink) {
             shrinkPreloader();
-            moveImages();
             shrinkTime = 1000;
         }
         setTimeout(fadePreloader, shrinkTime + 300);
@@ -59,18 +41,14 @@ function usePreloader() {
         progress.style.width = `${percentage}%`;
     }
     function waitForAutoscale() {
-        const zoomWrapper = targetImage.querySelector('.tn-atom__scale-wrapper');
-        if (zoomWrapper || targetImage.style.zoom) {
-            const img = targetImage.querySelector('img');
+        const zoomWrapper = targetBg.querySelector('.tn-atom__scale-wrapper');
+        if (zoomWrapper || targetBg.style.zoom) {
             const bg = targetBg.querySelector('.tn-atom');
-            const { top, left, width } = img.getBoundingClientRect();
-            if (top > 0) {
-                bgCoords = bg.getBoundingClientRect();
-                bgParams.top = bgCoords.top;
-                bgParams.left = bgCoords.left;
-                imageParams.top = top - bgParams.top;
-                imageParams.left = left - bgParams.left;
-                imageParams.width = width;
+            if ($(window).scrollTop() < 40) {
+                const { top, left } = bg.getBoundingClientRect();
+                bgParams.top = top;
+                bgParams.left = left;
+                bgParams.shrink = true;
             }
             return chainAnimations();
         }
@@ -80,4 +58,4 @@ function usePreloader() {
     return setProgress;
 }
 
-const setProgress = usePreloader();
+setProgress = usePreloader();

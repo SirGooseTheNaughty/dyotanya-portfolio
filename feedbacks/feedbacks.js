@@ -8,7 +8,8 @@ class Feedback {
         this.track = this.block.querySelector('.tracks');
         this.trackDefault = this.block.querySelector('.track.default');
         this.trackColor = this.block.querySelector('.track.colored');
-        this.link = this.getAudioLink(link);
+        // this.link = this.getAudioLink(link);
+        this.link = link;
         this.pinWidth = document.documentElement.width > 640 ? pinWidth : 2;
         this.audio = null;
 
